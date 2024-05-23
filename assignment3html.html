@@ -1,0 +1,118 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=0.1">
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="assignment3css.css">
+<script>
+    var viewersCount = 0; // Initialize viewers count
+var maxViewers = 6545;
+function validate() {
+    var name = document.forms['form1']['email'].value;
+    var password = document.forms['form1']['password'].value;
+    if (name == "" || password == "") {
+        alert("Please enter the details");
+        return false;
+    }
+    }
+
+function rate(starIndex) {
+    var stars = document.getElementsByClassName("star");
+    for (var i = 0; i < stars.length; i++) {
+        if (i <= starIndex) {
+            stars[i].classList.add("filled");
+        } else {
+            stars[i].classList.remove("filled");
+        }
+    }
+    // Update hidden input value with the rating
+    document.getElementById("ratingInput").value = starIndex + 1;
+}
+
+function addViewer() {
+ if (viewersCount < maxViewers) {
+    viewersCount++;
+    document.getElementById("viewersCount").innerText = viewersCount;
+}
+}
+
+// Increment viewers count at intervals
+function incrementViewers() {
+    setInterval(function() {
+        addViewer();
+    }, 1); // Change the interval time (in milliseconds) as needed
+}
+
+// Increment viewers count when the page loads
+window.onload = function () {
+    incrementViewers();
+};
+</script>
+
+ </head>
+<body>
+
+<div class="main">
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">PraRoz</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">SERVICE</a></li>
+                <li><a href="#">DESIGN</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <input class="srch" type="search" name="" placeholder="Type To text">
+            <a href="#"> <button class="btn">Search</button></a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Web Design & <br><span>Development</span> <br>Course</h1>
+        <p class="par">Here we have exciting courses where you can create your webpages and deploy them where you
+            want <br> Do you want to join?</p>
+        <button class="cn"><a href="#">JOIN US</a></button><br><br>
+        
+<h2>&nbsp&nbspRate us</h2>
+        <div class="rating">
+            <span class="star" onclick="rate(0)">&#9733;</span>
+            <span class="star" onclick="rate(1)">&#9733;</span>
+            <span class="star" onclick="rate(2)">&#9733;</span>
+            <span class="star" onclick="rate(3)">&#9733;</span>
+            <span class="star" onclick="rate(4)">&#9733;</span>
+        </div>
+	<h3>rated by</h3>
+        <div id="viewersCount" style="color: white;">0</div>
+        
+        <div class="form">
+            <h2>Login Here</h2>
+            <form name=form1 onsubmit="return validate()">
+                <input type="email" name="email" placeholder="Enter Email Here">
+                <input type="password" name="password" placeholder="Enter Password Here">
+                <button class="btnn"><a href="#">Login</a></button>
+            </form>
+            <p class="link">Don't have an account<br>
+                <a href="#">Sign up </a> here</a></p>
+            <p class="liw">Log in with</p>
+            <div class="icons">
+                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>
